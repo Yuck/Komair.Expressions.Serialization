@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace Komair.Expressions.Serialization
+namespace Komair.Expressions
 {
     public class ExpressionNode
     {

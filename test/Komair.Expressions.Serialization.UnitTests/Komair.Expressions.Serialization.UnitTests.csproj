@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Komair.Expressions.Mapping.Mapster\Komair.Expressions.Mapping.Mapster.csproj" />
+    <ProjectReference Include="..\..\src\Komair.Expressions.Mapping\Komair.Expressions.Mapping.csproj" />
+    <ProjectReference Include="..\..\src\Komair.Expressions.Serialization.Json\Komair.Expressions.Serialization.Json.csproj" />
+    <ProjectReference Include="..\..\src\Komair.Expressions.Serialization\Komair.Expressions.Serialization.csproj" />
+  </ItemGroup>
+
+</Project>

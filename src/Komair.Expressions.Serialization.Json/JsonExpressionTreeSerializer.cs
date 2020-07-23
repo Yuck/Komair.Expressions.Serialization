@@ -3,14 +3,14 @@ using Newtonsoft.Json.Linq;
 
 namespace Komair.Expressions.Serialization.Json
 {
-    public class JsonExpressionTreeSerializer : IExpressionTreeSerializer<JObject>
+    public class JsonExpressionTreeSerializer : IExpressionNodeSerializer<JObject>
     {
-        public ExpressionTree Deserialize(JObject document)
+        public ExpressionNode Deserialize(JObject document)
         {
-            return document.ToObject<ExpressionTree>();
+            return document.ToObject<ExpressionNode>();
         }
 
-        public JObject Serialize(ExpressionTree tree)
+        public JObject Serialize(ExpressionNode tree)
         {
             return JObject.FromObject(tree);
         }

@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mapster" Version="5.3.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Komair.Expressions\Komair.Expressions.csproj" />
   </ItemGroup>
 

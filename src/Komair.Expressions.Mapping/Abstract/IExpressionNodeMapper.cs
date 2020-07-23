@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Komair.Expressions.Serialization.Mapping.Abstract
+namespace Komair.Expressions.Mapping.Abstract
 {
     public interface IExpressionNodeMapper<T, TResult>
     {

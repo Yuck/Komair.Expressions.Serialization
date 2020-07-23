@@ -5,7 +5,15 @@ VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Komair.Expressions.Serialization", "src\Komair.Expressions.Serialization\Komair.Expressions.Serialization.csproj", "{166C5320-E248-4488-927F-FD0581C23795}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Komair.Expressions.Serialization.Json", "src\Komair.Expressions.Serialization.Json\Komair.Expressions.Serialization.Json.csproj", "{50A07A16-B316-465D-A708-C989A5AC3B94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Komair.Expressions.Serialization.Json", "src\Komair.Expressions.Serialization.Json\Komair.Expressions.Serialization.Json.csproj", "{50A07A16-B316-465D-A708-C989A5AC3B94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Komair.Expressions.Serialization.UnitTests", "test\Komair.Expressions.Serialization.UnitTests\Komair.Expressions.Serialization.UnitTests.csproj", "{A7CA2EF3-365F-4AEA-94C7-09D422B6071B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Komair.Expressions", "src\Komair.Expressions\Komair.Expressions.csproj", "{5E2A3F54-B221-41FB-8D0F-12F673E2F221}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Komair.Expressions.Mapping", "src\Komair.Expressions.Mapping\Komair.Expressions.Mapping.csproj", "{EC108992-870E-4BC6-A53B-DBDF91031A92}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Komair.Expressions.Mapping.Mapster", "src\Komair.Expressions.Mapping.Mapster\Komair.Expressions.Mapping.Mapster.csproj", "{D35E12FA-10C5-4B72-B88A-A7D320967640}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{50A07A16-B316-465D-A708-C989A5AC3B94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50A07A16-B316-465D-A708-C989A5AC3B94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50A07A16-B316-465D-A708-C989A5AC3B94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7CA2EF3-365F-4AEA-94C7-09D422B6071B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7CA2EF3-365F-4AEA-94C7-09D422B6071B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7CA2EF3-365F-4AEA-94C7-09D422B6071B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7CA2EF3-365F-4AEA-94C7-09D422B6071B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E2A3F54-B221-41FB-8D0F-12F673E2F221}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E2A3F54-B221-41FB-8D0F-12F673E2F221}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E2A3F54-B221-41FB-8D0F-12F673E2F221}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E2A3F54-B221-41FB-8D0F-12F673E2F221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC108992-870E-4BC6-A53B-DBDF91031A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC108992-870E-4BC6-A53B-DBDF91031A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC108992-870E-4BC6-A53B-DBDF91031A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC108992-870E-4BC6-A53B-DBDF91031A92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D35E12FA-10C5-4B72-B88A-A7D320967640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D35E12FA-10C5-4B72-B88A-A7D320967640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D35E12FA-10C5-4B72-B88A-A7D320967640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D35E12FA-10C5-4B72-B88A-A7D320967640}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Komair.Expressions\Komair.Expressions.csproj" />
+    <ProjectReference Include="..\Komair.Expressions.Mapping\Komair.Expressions.Mapping.csproj" />
   </ItemGroup>
 
 </Project>
