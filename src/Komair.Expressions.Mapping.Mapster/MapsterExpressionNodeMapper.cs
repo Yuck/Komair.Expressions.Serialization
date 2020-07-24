@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using Komair.Expressions.Abstract;
 using Komair.Expressions.Mapping.Abstract;
 using Komair.Expressions.Mapping.Mapster.Configuration;
 using Mapster;

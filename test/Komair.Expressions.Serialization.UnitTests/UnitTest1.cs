@@ -19,8 +19,6 @@ namespace Komair.Expressions.Serialization.UnitTests
         [Test]
         public void Test1()
         {
-            // TODO: ... Mapster.TypeAdapterConfig.GlobalSettings;
-
             Func<IExpressionNodeMapper<string, bool>> getMapper = () => new MapsterExpressionNodeMapper<string, bool>();
             Func<IExpressionNodeSerializer<JObject>> getSerializer = () => new JsonExpressionTreeSerializer();
             Expression<Func<string, bool>> x = t => t.Length > 0;
@@ -32,8 +30,8 @@ namespace Komair.Expressions.Serialization.UnitTests
             var serializer = getSerializer(); // this would come via DI
 
             var tree1 = mapper.ToExpressionNode(x);
-            var serialized = serializer.Serialize(tree1);
-            var deserialized = serializer.Deserialize(serialized);
+            var serialized = serializer.Serialize(tree1).ToString();
+            var deserialized = serializer.Deserialize(JObject.Parse(serialized));
             var tree2 = mapper.ToExpression(deserialized);
 
             var xxx = tree2.Compile();

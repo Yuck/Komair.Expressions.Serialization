@@ -1,4 +1,6 @@
-﻿namespace Komair.Expressions.Serialization.Abstract
+﻿using Komair.Expressions.Abstract;
+
+namespace Komair.Expressions.Serialization.Abstract
 {
     public interface IExpressionNodeSerializer<T>
     {
