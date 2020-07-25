@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 using Komair.Expressions.Abstract;
 
 namespace Komair.Expressions
@@ -8,7 +9,7 @@ namespace Komair.Expressions
         public ExpressionNode Left { get; set; }
         public ExpressionNode Right { get; set; }
 
-        public BinaryExpressionNode(ExpressionType nodeType, object type) : base(nodeType, type)
+        public BinaryExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type)
         {
         }
     }

@@ -17,7 +17,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
             {
                 // TODO: Should not have to pass Mapster Configuration around like this
                 Body = source.Body.Adapt<Expressions.Abstract.ExpressionNode>(Configuration),
-                Parameters = source.Parameters.Adapt<IEnumerable<ParameterExpressionNode>>(Configuration),
+                Parameters = source.Parameters.Adapt<IReadOnlyCollection<ParameterExpressionNode>>(Configuration),
                 ReturnType = source.ReturnType
             };
 

@@ -7,27 +7,31 @@ using Newtonsoft.Json.Linq;
 
 namespace Komair.Expressions.Serialization.Json
 {
-    public class JsonExpressionTreeSerializer : IExpressionNodeSerializer<JObject>
+    public class JsonExpressionTreeSerializer<TExpressionNode> : IExpressionNodeSerializer<JObject, TExpressionNode> where TExpressionNode : ExpressionNode
     {
+        private readonly JsonSerializerSettings _defaultSettings = new JsonSerializerSettings
+        {
+            Converters = new List<JsonConverter>
+            {
+                new StringEnumConverter()
+            },
+            NullValueHandling = NullValueHandling.Ignore,
+            TypeNameHandling = TypeNameHandling.Auto
+        };
+
         private readonly JsonSerializer _serializer;
 
         public JsonExpressionTreeSerializer(JsonSerializer serializer = null)
         {
-            _serializer = serializer ?? JsonSerializer.Create(new JsonSerializerSettings
-            {
-                Converters = new List<JsonConverter>
-                {
-                    new StringEnumConverter()
-                }
-            });
+            _serializer = serializer ?? JsonSerializer.Create(_defaultSettings);
         }
 
-        public ExpressionNode Deserialize(JObject document)
+        public TExpressionNode Deserialize(JObject document)
         {
-            return document.ToObject<ExpressionNode>(_serializer);
+            return document.ToObject<TExpressionNode>(_serializer);
         }
 
-        public JObject Serialize(ExpressionNode tree)
+        public JObject Serialize(TExpressionNode tree)
         {
             return JObject.FromObject(tree, _serializer);
         }

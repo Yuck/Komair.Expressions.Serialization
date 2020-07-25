@@ -2,9 +2,9 @@
 
 namespace Komair.Expressions.Serialization.Abstract
 {
-    public interface IExpressionNodeSerializer<T>
+    public interface IExpressionNodeSerializer<T, TExpressionNode> where TExpressionNode : ExpressionNode
     {
-        ExpressionNode Deserialize(T document);
-        T Serialize(ExpressionNode node);
+        TExpressionNode Deserialize(T document);
+        T Serialize(TExpressionNode node);
     }
 }

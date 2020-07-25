@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 using Komair.Expressions.Abstract;
 
 namespace Komair.Expressions
@@ -7,7 +8,7 @@ namespace Komair.Expressions
     {
         public string Name { get; set; }
 
-        public ParameterExpressionNode(ExpressionType nodeType, object type) : base(nodeType, type)
+        public ParameterExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type)
         {
         }
     }

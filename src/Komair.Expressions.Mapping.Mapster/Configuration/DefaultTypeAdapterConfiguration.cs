@@ -18,7 +18,11 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration
             ForType<ParameterExpression, ExpressionNode>().MapWith(source => new ParameterExpressionMapper(this).Map(source));
             ForType<ParameterExpression, ParameterExpressionNode>().MapWith(source => new ParameterExpressionMapper(this).Map(source));
 
-            ForType<ExpressionNode, Expression<Func<T, TResult>>>().MapWith(source => ExpressionNodeMapper.Map<T, TResult>(source, this));
+            ForType<ExpressionNode, Expression<Func<T, TResult>>>().MapWith(source => new ExpressionNodeMapper<T, TResult>(this).Map(source));
+            ForType<BinaryExpressionNode, Expression>().MapWith(source => new BinaryExpressionNodeMapper(this).Map(source));
+            ForType<ConstantExpressionNode, Expression>().MapWith(source => new ConstantExpressionNodeMapper(this).Map(source));
+            ForType<MemberExpressionNode, Expression>().MapWith(source => new MemberExpressionNodeMapper(this).Map(source));
+            ForType<ParameterExpressionNode, Expression>().MapWith(source => new ParameterExpressionNodeMapper(this).Map(source));
         }
     }
 }

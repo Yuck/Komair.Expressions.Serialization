@@ -20,7 +20,7 @@ namespace Komair.Expressions.Serialization.UnitTests
         public void Test1()
         {
             Func<IExpressionNodeMapper<string, bool>> getMapper = () => new MapsterExpressionNodeMapper<string, bool>();
-            Func<IExpressionNodeSerializer<JObject>> getSerializer = () => new JsonExpressionTreeSerializer();
+            Func<IExpressionNodeSerializer<JObject, LambdaExpressionNode>> getSerializer = () => new JsonExpressionTreeSerializer<LambdaExpressionNode>();
             Expression<Func<string, bool>> x = t => t.Length > 0;
 
             var value = "test";
@@ -29,8 +29,9 @@ namespace Komair.Expressions.Serialization.UnitTests
             var mapper = getMapper(); // this would come via DI
             var serializer = getSerializer(); // this would come via DI
 
-            var tree1 = mapper.ToExpressionNode(x);
+            var tree1 = mapper.ToExpressionNode(x) as LambdaExpressionNode;
             var serialized = serializer.Serialize(tree1).ToString();
+
             var deserialized = serializer.Deserialize(JObject.Parse(serialized));
             var tree2 = mapper.ToExpression(deserialized);
 
