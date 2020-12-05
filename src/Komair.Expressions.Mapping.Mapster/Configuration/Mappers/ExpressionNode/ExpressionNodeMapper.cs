@@ -13,10 +13,11 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
 
         public override Expression<Func<T, TResult>> Map(Expressions.Abstract.ExpressionNode source)
         {
-            if (source is LambdaExpressionNode node)
-                return new LambdaExpressionNodeMapper<T, TResult>(Configuration).Map(node);
+            var result = source is LambdaExpressionNode node
+                             ? new LambdaExpressionNodeMapper<T, TResult>(Configuration).Map(node)
+                             : throw new NotSupportedException();
 
-            throw new NotSupportedException();
+            return result;
         }
     }
 }

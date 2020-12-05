@@ -8,7 +8,7 @@ namespace Komair.Expressions.Extensions
         public static IReadOnlyCollection<ParameterExpression> GetParameterList(this BinaryExpression expression)
         {
             if (expression == null)
-                return new List<ParameterExpression>();
+                return new List<ParameterExpression>(); // TODO: Test to cover this rare condition
 
             var result = new List<ParameterExpression>();
 
@@ -21,7 +21,7 @@ namespace Komair.Expressions.Extensions
         public static IReadOnlyCollection<ParameterExpression> GetParameterList(this Expression expression)
         {
             if (expression == null)
-                return new List<ParameterExpression>();
+                return new List<ParameterExpression>(); // TODO: Test to cover this rare condition
 
             switch (expression)
             {
@@ -38,10 +38,9 @@ namespace Komair.Expressions.Extensions
 
         public static IReadOnlyCollection<ParameterExpression> GetParameterList(this MemberExpression expression)
         {
-            if (expression == null)
-                return new List<ParameterExpression>();
-
-            return expression.Expression.GetParameterList();
+            return expression == null
+                       ? new List<ParameterExpression>()
+                       : expression.Expression.GetParameterList();
         }
     }
 }

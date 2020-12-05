@@ -13,13 +13,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 
         public override Expressions.Abstract.ExpressionNode Map(Expression<Func<T, TResult>> source)
         {
-            switch (source.NodeType)
-            {
-                case ExpressionType.Lambda:
-                    return new LambdaExpressionMapper(Configuration).Map(source);
-                default:
-                    throw new NotSupportedException();
-            }
+            return new LambdaExpressionMapper(Configuration).Map(source);
         }
     }
 }

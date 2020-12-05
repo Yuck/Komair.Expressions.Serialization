@@ -16,6 +16,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
         {
             var expression = source.Expression.Adapt<System.Linq.Expressions.Expression>(Configuration);
             var member = source.Expression.Type.GetMember(source.MemberName).FirstOrDefault();
+            // TODO: Test to cover this condition - need to start with a serialized expression like "".HelloWorld which we know doesn't exist
             if (member == null)
                 throw new MemberAccessException($"Member '{source.MemberName}' was not found on type '{source.Expression.Type.FullName}'.");
 
