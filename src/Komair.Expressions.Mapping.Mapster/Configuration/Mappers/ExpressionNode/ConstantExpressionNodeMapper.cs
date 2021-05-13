@@ -12,9 +12,11 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
         public override ConstantExpression Map(ConstantExpressionNode source)
         {
             var type = source.NodeType;
-            var value = source.Value.GetType() != type
-                            ? Convert.ChangeType(source.Value, type)
-                            : source.Value;
+            var value = source.Value == null
+                            ? source.Value
+                            : source.Value.GetType() != type
+                                ? Convert.ChangeType(source.Value, type)
+                                : source.Value;
             var result = System.Linq.Expressions.Expression.Constant(value, type);
 
             return result;

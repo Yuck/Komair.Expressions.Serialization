@@ -58,6 +58,30 @@ namespace Komair.Expressions.Serialization.UnitTests
             Assert.IsEmpty(y);
         }
 
+        [Test]
+        public void TestMemberExpressionNodeMapper()
+        {
+            static IExpressionNodeMapper<String, String> GetMapper() => new MapsterExpressionNodeMapper<String, String>();
+
+            var expressionType = ExpressionType.MemberAccess;
+            var memberExpressionNode = new MemberExpressionNode(expressionType, typeof(String))
+            {
+                MemberName = "HelloWorld"
+            };
+            var lambdaExpressionNode = new LambdaExpressionNode(ExpressionType.MemberAccess, typeof(String))
+            {
+                Body = memberExpressionNode
+            };
+
+            var mapper = GetMapper(); // this would come via DI
+
+            Assert.Throws<NullReferenceException>(() => mapper.ToExpression(lambdaExpressionNode));
+
+            memberExpressionNode.Expression = new ConstantExpressionNode(ExpressionType.Constant, typeof(String));
+
+            Assert.Throws<MemberAccessException>(() => mapper.ToExpression(lambdaExpressionNode));
+        }
+
         private static T GetNullReference<T>() where T : class => null;
     }
 }
