@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Komair.Expressions.Mapping"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Komair.Expressions.Mapping.Mapster", "src\Komair.Expressions.Mapping.Mapster\Komair.Expressions.Mapping.Mapster.csproj", "{D35E12FA-10C5-4B72-B88A-A7D320967640}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DB61DDD1-720E-4296-8B1D-467466D773E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{662A59C8-36E4-42EC-9F4D-D65F0A161A27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A7CA2EF3-365F-4AEA-94C7-09D422B6071B} = {662A59C8-36E4-42EC-9F4D-D65F0A161A27}
+		{662A59C8-36E4-42EC-9F4D-D65F0A161A27} = {DB61DDD1-720E-4296-8B1D-467466D773E4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4CA3B66E-00DB-4A4B-8828-5CE8C22FBD6D}

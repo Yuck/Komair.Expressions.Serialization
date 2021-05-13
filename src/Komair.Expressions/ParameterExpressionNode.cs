@@ -6,10 +6,8 @@ namespace Komair.Expressions
 {
     public class ParameterExpressionNode : ExpressionNode
     {
-        public string Name { get; set; }
+        public String Name { get; set; }
 
-        public ParameterExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type)
-        {
-        }
+        public ParameterExpressionNode(ExpressionType expressionType, Type nodeType) : base(expressionType, nodeType) { }
     }
 }

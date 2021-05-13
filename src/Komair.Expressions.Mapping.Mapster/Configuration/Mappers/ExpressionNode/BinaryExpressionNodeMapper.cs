@@ -7,9 +7,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
 {
     internal class BinaryExpressionNodeMapper : ExpressionNodeMapperBase<BinaryExpressionNode, BinaryExpression>
     {
-        public BinaryExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration)
-        {
-        }
+        public BinaryExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration) { }
 
         public override BinaryExpression Map(BinaryExpressionNode source)
         {
@@ -17,7 +15,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
             var right = source.Right.Adapt<System.Linq.Expressions.Expression>(Configuration);
 
             // TODO: Tests to cover each of these expression types (operators)
-            switch (source.NodeType)
+            switch (source.ExpressionType)
             {
                 case ExpressionType.Add:
                     return System.Linq.Expressions.Expression.Add(left, right);

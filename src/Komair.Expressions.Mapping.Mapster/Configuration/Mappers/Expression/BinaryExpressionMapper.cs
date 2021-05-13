@@ -6,9 +6,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 {
     internal class BinaryExpressionMapper : ExpressionMapperBase<BinaryExpression, BinaryExpressionNode>
     {
-        public BinaryExpressionMapper(TypeAdapterConfig configuration) : base(configuration)
-        {
-        }
+        public BinaryExpressionMapper(TypeAdapterConfig configuration) : base(configuration) { }
 
         public override BinaryExpressionNode Map(BinaryExpression source)
         {

@@ -38,9 +38,11 @@ namespace Komair.Expressions.Extensions
 
         public static IReadOnlyCollection<ParameterExpression> GetParameterList(this MemberExpression expression)
         {
-            return expression == null
-                       ? new List<ParameterExpression>()
-                       : expression.Expression.GetParameterList();
+            var result = expression == null
+                             ? new List<ParameterExpression>()
+                             : expression.Expression.GetParameterList();
+
+            return result;
         }
     }
 }

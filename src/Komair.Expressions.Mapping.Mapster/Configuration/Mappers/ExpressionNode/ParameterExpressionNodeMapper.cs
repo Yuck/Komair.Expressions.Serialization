@@ -6,13 +6,12 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
 {
     internal class ParameterExpressionNodeMapper : ExpressionNodeMapperBase<ParameterExpressionNode, ParameterExpression>
     {
-        public ParameterExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration)
-        {
-        }
+        public ParameterExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration) { }
 
         public override ParameterExpression Map(ParameterExpressionNode source)
         {
-            var result = System.Linq.Expressions.Expression.Parameter(source.Type, source.Name);
+            var type = source.NodeType;
+            var result = System.Linq.Expressions.Expression.Parameter(type, source.Name);
 
             return result;
         }

@@ -6,10 +6,8 @@ namespace Komair.Expressions
 {
     public class ConstantExpressionNode : ExpressionNode
     {
-        public object Value { get; set; }
+        public Object Value { get; set; }
 
-        public ConstantExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type)
-        {
-        }
+        public ConstantExpressionNode(ExpressionType expressionType, Type nodeType) : base(expressionType, nodeType) { }
     }
 }

@@ -9,10 +9,7 @@ namespace Komair.Expressions
     {
         public ExpressionNode Body { get; set; }
         public IReadOnlyCollection<ParameterExpressionNode> Parameters { get; set; }
-        public Type ReturnType { get; set; }
 
-        public LambdaExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type)
-        {
-        }
+        public LambdaExpressionNode(ExpressionType expressionType, Type nodeType) : base(expressionType, nodeType) { }
     }
 }

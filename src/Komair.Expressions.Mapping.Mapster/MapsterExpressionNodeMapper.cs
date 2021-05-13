@@ -16,14 +16,8 @@ namespace Komair.Expressions.Mapping.Mapster
             _configuration = configuration ?? new DefaultTypeAdapterConfiguration<T, TResult>();
         }
 
-        public Expression<Func<T, TResult>> ToExpression(ExpressionNode expression)
-        {
-            return expression.Adapt<Expression<Func<T, TResult>>>(_configuration);
-        }
+        public Expression<Func<T, TResult>> ToExpression(ExpressionNode expression) => expression.Adapt<Expression<Func<T, TResult>>>(_configuration);
 
-        public ExpressionNode ToExpressionNode(Expression<Func<T, TResult>> expression)
-        {
-            return expression.Adapt<ExpressionNode>(_configuration);
-        }
+        public ExpressionNode ToExpressionNode(Expression<Func<T, TResult>> expression) => expression.Adapt<ExpressionNode>(_configuration);
     }
 }

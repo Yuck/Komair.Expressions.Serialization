@@ -1,9 +1,11 @@
 using System;
 using System.Linq.Expressions;
+using Komair.Expressions.Abstract;
 using Komair.Expressions.Mapping.Abstract;
 using Komair.Expressions.Mapping.Mapster;
 using Komair.Expressions.Serialization.Abstract;
 using Komair.Expressions.Serialization.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
@@ -13,32 +15,28 @@ namespace Komair.Expressions.Serialization.UnitTests
     public class ComprehensiveTest
     {
         [SetUp]
-        public void Setup()
-        {
-        }
+        public void Setup() { }
 
         [Test]
         public void TestEverything()
         {
-            Func<IExpressionNodeMapper<string, bool>> getMapper = () => new MapsterExpressionNodeMapper<string, bool>();
-            Func<IExpressionNodeSerializer<JObject, LambdaExpressionNode>> getSerializer = () => new JsonExpressionTreeSerializer<LambdaExpressionNode>();
-            Expression<Func<string, bool>> x = t => t.Length > 0;
+            static IExpressionNodeMapper<String, Boolean> GetMapper() => new MapsterExpressionNodeMapper<String, Boolean>();
+            static IExpressionNodeSerializer<JObject, ExpressionNode> GetSerializer() => new JsonExpressionNodeSerializer<ExpressionNode>(new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
 
-            var value = "test";
-            var test1 = x.Compile()(value);
+            const String value = "test";
 
-            var mapper = getMapper(); // this would come via DI
-            var serializer = getSerializer(); // this would come via DI
+            var mapper = GetMapper(); // this would come via DI
+            var serializer = GetSerializer(); // this would come via DI
 
-            var tree1 = mapper.ToExpressionNode(x) as LambdaExpressionNode;
-            var serialized = serializer.Serialize(tree1).ToString();
+            Expression<Func<String, Boolean>> expression1 = t => t.Length > 0;
+            var test1 = expression1.Compile()(value);
 
-            var deserialized = serializer.Deserialize(JObject.Parse(serialized));
-            var tree2 = mapper.ToExpression(deserialized);
+            var node1 = mapper.ToExpressionNode(expression1);
+            var serialized = serializer.Serialize(node1);
+            var node2 = serializer.Deserialize(serialized);
 
-            var xxx = tree2.Compile();
-
-            var test2 = xxx(value);
+            var expression2 = mapper.ToExpression(node2);
+            var test2 = expression2.Compile()(value);
 
             Assert.AreEqual(test1, test2);
         }

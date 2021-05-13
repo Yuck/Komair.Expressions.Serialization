@@ -8,9 +8,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
 {
     internal class LambdaExpressionNodeMapper<T, TResult> : ExpressionNodeMapperBase<LambdaExpressionNode, Expression<Func<T, TResult>>>
     {
-        public LambdaExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration)
-        {
-        }
+        public LambdaExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration) { }
 
         public override Expression<Func<T, TResult>> Map(LambdaExpressionNode source)
         {

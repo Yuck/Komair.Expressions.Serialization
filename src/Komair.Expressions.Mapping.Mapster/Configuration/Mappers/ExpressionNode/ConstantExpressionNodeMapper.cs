@@ -7,16 +7,15 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
 {
     internal class ConstantExpressionNodeMapper : ExpressionNodeMapperBase<ConstantExpressionNode, ConstantExpression>
     {
-        public ConstantExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration)
-        {
-        }
+        public ConstantExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration) { }
 
         public override ConstantExpression Map(ConstantExpressionNode source)
         {
-            var value = source.Value.GetType() != source.Type
-                            ? Convert.ChangeType(source.Value, source.Type)
+            var type = source.NodeType;
+            var value = source.Value.GetType() != type
+                            ? Convert.ChangeType(source.Value, type)
                             : source.Value;
-            var result = System.Linq.Expressions.Expression.Constant(value, source.Type);
+            var result = System.Linq.Expressions.Expression.Constant(value, type);
 
             return result;
         }

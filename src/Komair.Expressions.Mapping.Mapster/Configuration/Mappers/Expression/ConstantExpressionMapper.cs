@@ -6,9 +6,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 {
     internal class ConstantExpressionMapper : ExpressionMapperBase<ConstantExpression, ConstantExpressionNode>
     {
-        public ConstantExpressionMapper(TypeAdapterConfig configuration) : base(configuration)
-        {
-        }
+        public ConstantExpressionMapper(TypeAdapterConfig configuration) : base(configuration) { }
 
         public override ConstantExpressionNode Map(ConstantExpression source)
         {

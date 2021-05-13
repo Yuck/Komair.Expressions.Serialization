@@ -7,9 +7,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 {
     internal class LambdaExpressionMapper : ExpressionMapperBase<LambdaExpression, LambdaExpressionNode>
     {
-        public LambdaExpressionMapper(TypeAdapterConfig configuration) : base(configuration)
-        {
-        }
+        public LambdaExpressionMapper(TypeAdapterConfig configuration) : base(configuration) { }
 
         public override LambdaExpressionNode Map(LambdaExpression source)
         {
@@ -17,8 +15,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
             {
                 // TODO: Should not have to pass Mapster Configuration around like this
                 Body = source.Body.Adapt<Expressions.Abstract.ExpressionNode>(Configuration),
-                Parameters = source.Parameters.Adapt<IReadOnlyCollection<ParameterExpressionNode>>(Configuration),
-                ReturnType = source.ReturnType
+                Parameters = source.Parameters.Adapt<IReadOnlyCollection<ParameterExpressionNode>>(Configuration)
             };
 
             return result;

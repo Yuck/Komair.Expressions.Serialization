@@ -6,9 +6,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 {
     internal class ParameterExpressionMapper : ExpressionMapperBase<ParameterExpression, ParameterExpressionNode>
     {
-        public ParameterExpressionMapper(TypeAdapterConfig configuration) : base(configuration)
-        {
-        }
+        public ParameterExpressionMapper(TypeAdapterConfig configuration) : base(configuration) { }
 
         public override ParameterExpressionNode Map(ParameterExpression source)
         {

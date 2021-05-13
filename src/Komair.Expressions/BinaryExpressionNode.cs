@@ -9,8 +9,6 @@ namespace Komair.Expressions
         public ExpressionNode Left { get; set; }
         public ExpressionNode Right { get; set; }
 
-        public BinaryExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type)
-        {
-        }
+        public BinaryExpressionNode(ExpressionType expressionType, Type nodeType) : base(expressionType, nodeType) { }
     }
 }
