@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace Komair.Expressions.Extensions
@@ -15,7 +16,7 @@ namespace Komair.Expressions.Extensions
             result.AddRange(expression.Left.GetParameterList());
             result.AddRange(expression.Right.GetParameterList());
 
-            return result;
+            return result.GroupBy(t => t.Name).Select(t => t.First()).ToList();
         }
 
         public static IReadOnlyCollection<ParameterExpression> GetParameterList(this Expression expression)

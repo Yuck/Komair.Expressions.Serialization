@@ -14,7 +14,6 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
             var left = source.Left.Adapt<System.Linq.Expressions.Expression>(Configuration);
             var right = source.Right.Adapt<System.Linq.Expressions.Expression>(Configuration);
 
-            // TODO: Tests to cover each of these expression types (operators)
             switch (source.ExpressionType)
             {
                 case ExpressionType.Add:
