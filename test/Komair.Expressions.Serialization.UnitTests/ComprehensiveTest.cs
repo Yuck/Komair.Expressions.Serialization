@@ -1,6 +1,7 @@
 using System;
 using System.Linq.Expressions;
 using Komair.Expressions.Abstract;
+using Komair.Expressions.Extensions;
 using Komair.Expressions.Mapping.Abstract;
 using Komair.Expressions.Mapping.Mapster;
 using Komair.Expressions.Serialization.Abstract;
@@ -40,5 +41,23 @@ namespace Komair.Expressions.Serialization.UnitTests
 
             Assert.AreEqual(test1, test2);
         }
+
+        [Test]
+        public void TestExpressionExtensions()
+        {
+            var a = GetNullReference<Expression>();
+            var b = GetNullReference<BinaryExpression>();
+
+            var x = a.GetParameterList();
+            var y = b.GetParameterList();
+
+            Assert.IsNotNull(x);
+            Assert.IsEmpty(x);
+
+            Assert.IsNotNull(y);
+            Assert.IsEmpty(y);
+        }
+
+        private static T GetNullReference<T>() where T : class => null;
     }
 }
