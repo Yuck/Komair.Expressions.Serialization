@@ -6,7 +6,7 @@ namespace Komair.Expressions.Abstract
     public abstract class ExpressionNode
     {
         public ExpressionType ExpressionType { get; }
-        public Type NodeType { get; } // TODO: May not really need the whole type construct
+        public Type NodeType { get; }
 
         protected ExpressionNode(ExpressionType expressionType, Type nodeType)
         {
