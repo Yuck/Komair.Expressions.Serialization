@@ -5,14 +5,14 @@ using Mapster;
 
 namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode
 {
-    internal class ExpressionNodeMapper<T, TResult> : ExpressionNodeMapperBase<Expressions.Abstract.ExpressionNode, Expression<Func<T, TResult>>>
+    internal class ExpressionNodeMapper<T> : ExpressionNodeMapperBase<Expressions.Abstract.ExpressionNode, Expression<T>>
     {
         public ExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration) { }
 
-        public override Expression<Func<T, TResult>> Map(Expressions.Abstract.ExpressionNode source)
+        public override Expression<T> Map(Expressions.Abstract.ExpressionNode source)
         {
             var result = source is LambdaExpressionNode node
-                             ? new LambdaExpressionNodeMapper<T, TResult>(Configuration).Map(node)
+                             ? new LambdaExpressionNodeMapper<T>(Configuration).Map(node)
                              : throw new NotSupportedException();
 
             return result;

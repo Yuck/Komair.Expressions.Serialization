@@ -22,7 +22,7 @@ namespace Komair.Expressions.Serialization.UnitTests
         [Test]
         public void TestEverything()
         {
-            static IExpressionNodeMapper<String, Boolean> GetMapper() => new MapsterExpressionNodeMapper<String, Boolean>();
+            static IExpressionNodeMapper<Func<String, Boolean>> GetMapper() => new MapsterExpressionNodeMapper<Func<String, Boolean>>();
             static IExpressionNodeSerializer<JObject, ExpressionNode> GetSerializer() => new JsonExpressionNodeSerializer<ExpressionNode>(new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
 
             const String value = "test";
@@ -62,7 +62,7 @@ namespace Komair.Expressions.Serialization.UnitTests
         [Test]
         public void TestMemberExpressionNodeMapper()
         {
-            static IExpressionNodeMapper<String, String> GetMapper() => new MapsterExpressionNodeMapper<String, String>();
+            static IExpressionNodeMapper<Func<String, String>> GetMapper() => new MapsterExpressionNodeMapper<Func<String, String>>();
 
             var expressionType = ExpressionType.MemberAccess;
             var memberExpressionNode = new MemberExpressionNode(expressionType, typeof(String))
@@ -86,7 +86,7 @@ namespace Komair.Expressions.Serialization.UnitTests
         [Test]
         public void TestBinaryExpressionNodeMapper_Int32Int32()
         {
-            static IExpressionNodeMapper<Int32, Int32> GetMapper() => new MapsterExpressionNodeMapper<Int32, Int32>();
+            static IExpressionNodeMapper<Func<Int32, Int32>> GetMapper() => new MapsterExpressionNodeMapper<Func<Int32, Int32>>();
 
             var operations = new[]
             {
@@ -118,7 +118,7 @@ namespace Komair.Expressions.Serialization.UnitTests
         [Test]
         public void TestBinaryExpressionNodeMapper_Int32Boolean()
         {
-            static IExpressionNodeMapper<Int32, Boolean> GetMapper() => new MapsterExpressionNodeMapper<Int32, Boolean>();
+            static IExpressionNodeMapper<Func<Int32, Boolean>> GetMapper() => new MapsterExpressionNodeMapper<Func<Int32, Boolean>>();
 
             var operations = new[]
             {
@@ -144,7 +144,7 @@ namespace Komair.Expressions.Serialization.UnitTests
         [Test]
         public void TestBinaryExpressionNodeMapper_BooleanBoolean()
         {
-            static IExpressionNodeMapper<Boolean, Boolean> GetMapper() => new MapsterExpressionNodeMapper<Boolean, Boolean>();
+            static IExpressionNodeMapper<Func<Boolean, Boolean>> GetMapper() => new MapsterExpressionNodeMapper<Func<Boolean, Boolean>>();
 
             var operations = new[]
             {
@@ -169,7 +169,7 @@ namespace Komair.Expressions.Serialization.UnitTests
         [Test]
         public void TestBinaryExpressionNodeMapper_DoubleDouble()
         {
-            static IExpressionNodeMapper<Double, Double> GetMapper() => new MapsterExpressionNodeMapper<Double, Double>();
+            static IExpressionNodeMapper<Func<Double, Double>> GetMapper() => new MapsterExpressionNodeMapper<Func<Double, Double>>();
 
             var operations = new[]
             {
@@ -194,7 +194,7 @@ namespace Komair.Expressions.Serialization.UnitTests
         [Test]
         public void TestBinaryExpressionNodeMapper_Coalesce()
         {
-            static IExpressionNodeMapper<String, String> GetMapper() => new MapsterExpressionNodeMapper<String, String>();
+            static IExpressionNodeMapper<Func<String, String>> GetMapper() => new MapsterExpressionNodeMapper<Func<String, String>>();
 
             var mapper = GetMapper();
             var parameter = new ParameterExpressionNode(ExpressionType.Parameter, typeof(String)) { Name = "t" };
@@ -211,7 +211,7 @@ namespace Komair.Expressions.Serialization.UnitTests
         [Test]
         public void TestBinaryExpressionNodeMapper_NotSupported()
         {
-            static IExpressionNodeMapper<String, String> GetMapper() => new MapsterExpressionNodeMapper<String, String>();
+            static IExpressionNodeMapper<Func<String, String>> GetMapper() => new MapsterExpressionNodeMapper<Func<String, String>>();
 
             var mapper = GetMapper();
             var parameter = new ParameterExpressionNode(ExpressionType.Parameter, typeof(String)) { Name = "t" };
@@ -222,6 +222,26 @@ namespace Komair.Expressions.Serialization.UnitTests
             };
 
             Assert.Throws<NotSupportedException>(() => mapper.ToExpression(node));
+        }
+
+        [Test]
+        public void TestBinaryExpressionNodeMapper_WithMultipleParameters()
+        {
+            static IExpressionNodeMapper<Func<Int32, Int32, Int32>> GetMapper() => new MapsterExpressionNodeMapper<Func<Int32, Int32, Int32>>();
+
+            var mapper = GetMapper();
+            var parameters = new[]
+            {
+                new ParameterExpressionNode(ExpressionType.Parameter, typeof(Int32)) { Name = "t" },
+                new ParameterExpressionNode(ExpressionType.Parameter, typeof(Int32)) { Name = "u" }
+            };
+            var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Int32))
+            {
+                Body = new BinaryExpressionNode(ExpressionType.Add, typeof(Int32)) { Left = parameters[0], Right = parameters[1] },
+                Parameters = parameters
+            };
+
+            Assert.IsNotNull(mapper.ToExpression(node));
         }
 
         private static T GetNullReference<T>() where T : class => null;

@@ -1,12 +1,11 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 using Komair.Expressions.Abstract;
 
 namespace Komair.Expressions.Mapping.Abstract
 {
-    public interface IExpressionNodeMapper<T, TResult>
+    public interface IExpressionNodeMapper<T>
     {
-        Expression<Func<T, TResult>> ToExpression(ExpressionNode node);
-        ExpressionNode ToExpressionNode(Expression<Func<T, TResult>> expression);
+        Expression<T> ToExpression(ExpressionNode node);
+        ExpressionNode ToExpressionNode(Expression<T> expression);
     }
 }
