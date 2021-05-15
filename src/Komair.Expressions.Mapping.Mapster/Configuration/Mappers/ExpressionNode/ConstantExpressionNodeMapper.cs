@@ -11,7 +11,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
 
         public override ConstantExpression Map(ConstantExpressionNode source)
         {
-            var type = source.NodeType;
+            var type = source.Type;
             var value = source.Value == null
                             ? source.Value
                             : source.Value.GetType() != type

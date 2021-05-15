@@ -10,7 +10,9 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 
         public override ParameterExpressionNode Map(ParameterExpression source)
         {
-            var result = new ParameterExpressionNode(source.NodeType, source.Type)
+            var nodeType = source.NodeType;
+            var type = source.Type;
+            var result = new ParameterExpressionNode(nodeType, type)
             {
                 Name = source.Name
             };

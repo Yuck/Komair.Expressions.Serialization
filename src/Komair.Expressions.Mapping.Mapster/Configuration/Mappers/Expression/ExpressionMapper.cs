@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System;
+using System.Linq.Expressions;
 using Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression.Abstract;
 using Mapster;
 
@@ -10,9 +11,10 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 
         public override Expressions.Abstract.ExpressionNode Map(Expression<T> source)
         {
-            var result = new LambdaExpressionMapper(Configuration).Map(source);
+            if (source is LambdaExpression lambdaExpression)
+                return new LambdaExpressionMapper(Configuration).Map(lambdaExpression);
 
-            return result;
+            throw new NotSupportedException();
         }
     }
 }

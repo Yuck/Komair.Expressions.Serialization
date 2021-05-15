@@ -5,13 +5,13 @@ namespace Komair.Expressions.Abstract
 {
     public abstract class ExpressionNode
     {
-        public ExpressionType ExpressionType { get; }
-        public Type NodeType { get; }
+        public ExpressionType NodeType { get; }
+        public Type Type { get; }
 
-        protected ExpressionNode(ExpressionType expressionType, Type nodeType)
+        protected ExpressionNode(ExpressionType nodeType, Type type)
         {
-            ExpressionType = expressionType;
             NodeType = nodeType;
+            Type = type;
         }
     }
 }

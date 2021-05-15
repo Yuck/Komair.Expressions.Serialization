@@ -11,11 +11,14 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 
         public override LambdaExpressionNode Map(LambdaExpression source)
         {
-            var result = new LambdaExpressionNode(source.NodeType, source.Type)
+            var nodeType = source.NodeType;
+            var type = source.Type;
+            var body = source.Body.Adapt<Expressions.Abstract.ExpressionNode>(Configuration);
+            var parameters = source.Parameters.Adapt<IReadOnlyCollection<ParameterExpressionNode>>(Configuration);
+            var result = new LambdaExpressionNode(nodeType, type)
             {
-                // TODO: Should not have to pass Mapster Configuration around like this
-                Body = source.Body.Adapt<Expressions.Abstract.ExpressionNode>(Configuration),
-                Parameters = source.Parameters.Adapt<IReadOnlyCollection<ParameterExpressionNode>>(Configuration)
+                Body = body,
+                Parameters = parameters
             };
 
             return result;

@@ -9,6 +9,6 @@ namespace Komair.Expressions
         public ExpressionNode Expression { get; set; }
         public String MemberName { get; set; }
 
-        public MemberExpressionNode(ExpressionType expressionType, Type nodeType) : base(expressionType, nodeType) { }
+        public MemberExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type) { }
     }
 }

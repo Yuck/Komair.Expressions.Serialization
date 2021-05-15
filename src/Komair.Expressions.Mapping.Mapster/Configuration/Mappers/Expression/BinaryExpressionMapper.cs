@@ -10,10 +10,14 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 
         public override BinaryExpressionNode Map(BinaryExpression source)
         {
-            var result = new BinaryExpressionNode(source.NodeType, source.Type)
+            var nodeType = source.NodeType;
+            var type = source.Type;
+            var left = source.Left.Adapt<Expressions.Abstract.ExpressionNode>(Configuration);
+            var right = source.Right.Adapt<Expressions.Abstract.ExpressionNode>(Configuration);
+            var result = new BinaryExpressionNode(nodeType, type)
             {
-                Left = source.Left.Adapt<Expressions.Abstract.ExpressionNode>(Configuration),
-                Right = source.Right.Adapt<Expressions.Abstract.ExpressionNode>(Configuration)
+                Left = left,
+                Right = right
             };
 
             return result;

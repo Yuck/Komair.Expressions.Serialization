@@ -10,7 +10,9 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 
         public override ConstantExpressionNode Map(ConstantExpression source)
         {
-            var result = new ConstantExpressionNode(source.NodeType, source.Type)
+            var nodeType = source.NodeType;
+            var type = source.Type;
+            var result = new ConstantExpressionNode(nodeType, type)
             {
                 Value = source.Value
             };

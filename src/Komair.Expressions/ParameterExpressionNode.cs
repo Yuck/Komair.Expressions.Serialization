@@ -8,6 +8,6 @@ namespace Komair.Expressions
     {
         public String Name { get; set; }
 
-        public ParameterExpressionNode(ExpressionType expressionType, Type nodeType) : base(expressionType, nodeType) { }
+        public ParameterExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type) { }
     }
 }

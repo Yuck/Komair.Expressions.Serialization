@@ -10,7 +10,9 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
 
         public override MemberExpressionNode Map(MemberExpression source)
         {
-            var result = new MemberExpressionNode(source.NodeType, source.Type)
+            var nodeType = source.NodeType;
+            var type = source.Type;
+            var result = new MemberExpressionNode(nodeType, type)
             {
                 Expression = source.Expression.Adapt<Expressions.Abstract.ExpressionNode>(Configuration),
                 MemberName = source.Member.Name

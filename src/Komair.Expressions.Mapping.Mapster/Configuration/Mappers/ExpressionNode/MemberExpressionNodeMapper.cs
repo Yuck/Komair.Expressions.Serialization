@@ -13,7 +13,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
         public override MemberExpression Map(MemberExpressionNode source)
         {
             var expression = source.Expression.Adapt<System.Linq.Expressions.Expression>(Configuration);
-            var type = source.Expression?.NodeType;
+            var type = source.Expression?.Type;
             if (type == null)
                 throw new NullReferenceException();
 
