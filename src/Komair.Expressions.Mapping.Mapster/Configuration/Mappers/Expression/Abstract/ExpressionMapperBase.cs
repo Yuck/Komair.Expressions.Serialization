@@ -2,7 +2,7 @@
 
 namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression.Abstract
 {
-    internal abstract class ExpressionMapperBase<TSource, TDestination>
+    internal abstract class ExpressionMapperBase<TSource, TDestination> where TSource : System.Linq.Expressions.Expression where TDestination : Expressions.Abstract.ExpressionNode
     {
         protected TypeAdapterConfig Configuration;
 
