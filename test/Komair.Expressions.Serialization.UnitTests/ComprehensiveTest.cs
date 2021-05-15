@@ -69,7 +69,7 @@ namespace Komair.Expressions.Serialization.UnitTests
             {
                 MemberName = "HelloWorld"
             };
-            var lambdaExpressionNode = new LambdaExpressionNode(ExpressionType.Lambda, typeof(String))
+            var lambdaExpressionNode = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Func<String, String>))
             {
                 Body = memberExpressionNode
             };
@@ -104,7 +104,7 @@ namespace Komair.Expressions.Serialization.UnitTests
 
             foreach (var operation in operations)
             {
-                var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Int32))
+                var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Func<Int32, Int32>))
                 {
                     Body = new BinaryExpressionNode(operation, typeof(Int32)) { Left = parameter, Right = parameter },
                     Parameters = new List<ParameterExpressionNode> { parameter }
@@ -130,7 +130,7 @@ namespace Komair.Expressions.Serialization.UnitTests
 
             foreach (var operation in operations)
             {
-                var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Int32))
+                var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Func<Int32, Boolean>))
                 {
                     Body = new BinaryExpressionNode(operation, typeof(Int32)) { Left = parameter, Right = parameter },
                     Parameters = new List<ParameterExpressionNode> { parameter }
@@ -155,7 +155,7 @@ namespace Komair.Expressions.Serialization.UnitTests
 
             foreach (var operation in operations)
             {
-                var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Boolean))
+                var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Func<Boolean, Boolean>))
                 {
                     Body = new BinaryExpressionNode(operation, typeof(Boolean)) { Left = parameter, Right = parameter },
                     Parameters = new List<ParameterExpressionNode> { parameter }
@@ -180,7 +180,7 @@ namespace Komair.Expressions.Serialization.UnitTests
 
             foreach (var operation in operations)
             {
-                var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Double))
+                var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Func<Double, Double>))
                 {
                     Body = new BinaryExpressionNode(operation, typeof(Double)) { Left = parameter, Right = parameter },
                     Parameters = new List<ParameterExpressionNode> { parameter }
@@ -198,7 +198,7 @@ namespace Komair.Expressions.Serialization.UnitTests
 
             var mapper = GetMapper();
             var parameter = new ParameterExpressionNode(ExpressionType.Parameter, typeof(String)) { Name = "t" };
-            var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(String))
+            var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Func<String, String>))
             {
                 Body = new BinaryExpressionNode(ExpressionType.Coalesce, typeof(String)) { Left = parameter, Right = parameter },
                 Parameters = new List<ParameterExpressionNode> { parameter }
@@ -215,7 +215,7 @@ namespace Komair.Expressions.Serialization.UnitTests
 
             var mapper = GetMapper();
             var parameter = new ParameterExpressionNode(ExpressionType.Parameter, typeof(String)) { Name = "t" };
-            var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(String))
+            var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Func<String, String>))
             {
                 Body = new BinaryExpressionNode(ExpressionType.ArrayIndex, typeof(String)) { Left = parameter, Right = parameter },
                 Parameters = new List<ParameterExpressionNode> { parameter }
@@ -235,7 +235,7 @@ namespace Komair.Expressions.Serialization.UnitTests
                 new ParameterExpressionNode(ExpressionType.Parameter, typeof(Int32)) { Name = "t" },
                 new ParameterExpressionNode(ExpressionType.Parameter, typeof(Int32)) { Name = "u" }
             };
-            var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Int32))
+            var node = new LambdaExpressionNode(ExpressionType.Lambda, typeof(Func<Int32, Int32, Int32>))
             {
                 Body = new BinaryExpressionNode(ExpressionType.Add, typeof(Int32)) { Left = parameters[0], Right = parameters[1] },
                 Parameters = parameters
