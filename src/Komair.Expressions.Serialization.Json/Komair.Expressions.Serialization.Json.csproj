@@ -8,6 +8,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>Kevin J Lambert, Omair Sajid</Authors>
     <Company />
+    <Description>A .NET library implementing Komair.Expressions.Serialization using the Newtonsoft.Json package.</Description>
   </PropertyGroup>
 
   <ItemGroup>
