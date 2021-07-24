@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode.Abstract;
 using Mapster;
+using LinqExpression = System.Linq.Expressions.Expression;
 
 namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode
 {
@@ -11,87 +12,87 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
 
         public override BinaryExpression Map(BinaryExpressionNode source)
         {
-            var left = source.Left.Adapt<System.Linq.Expressions.Expression>(Configuration);
-            var right = source.Right.Adapt<System.Linq.Expressions.Expression>(Configuration);
+            var left = source.Left.Adapt<LinqExpression>(Configuration);
+            var right = source.Right.Adapt<LinqExpression>(Configuration);
 
             switch (source.NodeType)
             {
                 case ExpressionType.Add:
-                    return System.Linq.Expressions.Expression.Add(left, right);
+                    return LinqExpression.Add(left, right);
                 case ExpressionType.AddAssign:
-                    return System.Linq.Expressions.Expression.AddAssign(left, right);
+                    return LinqExpression.AddAssign(left, right);
                 case ExpressionType.AddAssignChecked:
-                    return System.Linq.Expressions.Expression.AddAssignChecked(left, right);
+                    return LinqExpression.AddAssignChecked(left, right);
                 case ExpressionType.AddChecked:
-                    return System.Linq.Expressions.Expression.AddChecked(left, right);
+                    return LinqExpression.AddChecked(left, right);
                 case ExpressionType.And:
-                    return System.Linq.Expressions.Expression.And(left, right);
+                    return LinqExpression.And(left, right);
                 case ExpressionType.AndAlso:
-                    return System.Linq.Expressions.Expression.AndAlso(left, right);
+                    return LinqExpression.AndAlso(left, right);
                 case ExpressionType.AndAssign:
-                    return System.Linq.Expressions.Expression.AndAssign(left, right);
+                    return LinqExpression.AndAssign(left, right);
                 case ExpressionType.Assign:
-                    return System.Linq.Expressions.Expression.Assign(left, right);
+                    return LinqExpression.Assign(left, right);
                 case ExpressionType.Coalesce:
-                    return System.Linq.Expressions.Expression.Coalesce(left, right);
+                    return LinqExpression.Coalesce(left, right);
                 case ExpressionType.Divide:
-                    return System.Linq.Expressions.Expression.Divide(left, right);
+                    return LinqExpression.Divide(left, right);
                 case ExpressionType.DivideAssign:
-                    return System.Linq.Expressions.Expression.DivideAssign(left, right);
+                    return LinqExpression.DivideAssign(left, right);
                 case ExpressionType.Equal:
-                    return System.Linq.Expressions.Expression.Equal(left, right);
+                    return LinqExpression.Equal(left, right);
                 case ExpressionType.ExclusiveOr:
-                    return System.Linq.Expressions.Expression.ExclusiveOr(left, right);
+                    return LinqExpression.ExclusiveOr(left, right);
                 case ExpressionType.ExclusiveOrAssign:
-                    return System.Linq.Expressions.Expression.ExclusiveOrAssign(left, right);
+                    return LinqExpression.ExclusiveOrAssign(left, right);
                 case ExpressionType.GreaterThan:
-                    return System.Linq.Expressions.Expression.GreaterThan(left, right);
+                    return LinqExpression.GreaterThan(left, right);
                 case ExpressionType.GreaterThanOrEqual:
-                    return System.Linq.Expressions.Expression.GreaterThanOrEqual(left, right);
+                    return LinqExpression.GreaterThanOrEqual(left, right);
                 case ExpressionType.LeftShift:
-                    return System.Linq.Expressions.Expression.LeftShift(left, right);
+                    return LinqExpression.LeftShift(left, right);
                 case ExpressionType.LeftShiftAssign:
-                    return System.Linq.Expressions.Expression.LeftShiftAssign(left, right);
+                    return LinqExpression.LeftShiftAssign(left, right);
                 case ExpressionType.LessThan:
-                    return System.Linq.Expressions.Expression.LessThan(left, right);
+                    return LinqExpression.LessThan(left, right);
                 case ExpressionType.LessThanOrEqual:
-                    return System.Linq.Expressions.Expression.LessThanOrEqual(left, right);
+                    return LinqExpression.LessThanOrEqual(left, right);
                 case ExpressionType.Modulo:
-                    return System.Linq.Expressions.Expression.Modulo(left, right);
+                    return LinqExpression.Modulo(left, right);
                 case ExpressionType.ModuloAssign:
-                    return System.Linq.Expressions.Expression.ModuloAssign(left, right);
+                    return LinqExpression.ModuloAssign(left, right);
                 case ExpressionType.Multiply:
-                    return System.Linq.Expressions.Expression.Multiply(left, right);
+                    return LinqExpression.Multiply(left, right);
                 case ExpressionType.MultiplyAssign:
-                    return System.Linq.Expressions.Expression.MultiplyAssign(left, right);
+                    return LinqExpression.MultiplyAssign(left, right);
                 case ExpressionType.MultiplyAssignChecked:
-                    return System.Linq.Expressions.Expression.MultiplyAssignChecked(left, right);
+                    return LinqExpression.MultiplyAssignChecked(left, right);
                 case ExpressionType.MultiplyChecked:
-                    return System.Linq.Expressions.Expression.MultiplyChecked(left, right);
+                    return LinqExpression.MultiplyChecked(left, right);
                 case ExpressionType.NotEqual:
-                    return System.Linq.Expressions.Expression.NotEqual(left, right);
+                    return LinqExpression.NotEqual(left, right);
                 case ExpressionType.Or:
-                    return System.Linq.Expressions.Expression.Or(left, right);
+                    return LinqExpression.Or(left, right);
                 case ExpressionType.OrAssign:
-                    return System.Linq.Expressions.Expression.OrAssign(left, right);
+                    return LinqExpression.OrAssign(left, right);
                 case ExpressionType.OrElse:
-                    return System.Linq.Expressions.Expression.OrElse(left, right);
+                    return LinqExpression.OrElse(left, right);
                 case ExpressionType.Power:
-                    return System.Linq.Expressions.Expression.Power(left, right);
+                    return LinqExpression.Power(left, right);
                 case ExpressionType.PowerAssign:
-                    return System.Linq.Expressions.Expression.PowerAssign(left, right);
+                    return LinqExpression.PowerAssign(left, right);
                 case ExpressionType.RightShift:
-                    return System.Linq.Expressions.Expression.RightShift(left, right);
+                    return LinqExpression.RightShift(left, right);
                 case ExpressionType.RightShiftAssign:
-                    return System.Linq.Expressions.Expression.RightShiftAssign(left, right);
+                    return LinqExpression.RightShiftAssign(left, right);
                 case ExpressionType.Subtract:
-                    return System.Linq.Expressions.Expression.Subtract(left, right);
+                    return LinqExpression.Subtract(left, right);
                 case ExpressionType.SubtractAssign:
-                    return System.Linq.Expressions.Expression.SubtractAssign(left, right);
+                    return LinqExpression.SubtractAssign(left, right);
                 case ExpressionType.SubtractAssignChecked:
-                    return System.Linq.Expressions.Expression.SubtractAssignChecked(left, right);
+                    return LinqExpression.SubtractAssignChecked(left, right);
                 case ExpressionType.SubtractChecked:
-                    return System.Linq.Expressions.Expression.SubtractChecked(left, right);
+                    return LinqExpression.SubtractChecked(left, right);
                 default:
                     throw new NotSupportedException();
             }

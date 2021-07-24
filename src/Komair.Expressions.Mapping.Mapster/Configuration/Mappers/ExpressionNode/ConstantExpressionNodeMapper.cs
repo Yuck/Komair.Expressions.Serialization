@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode.Abstract;
 using Mapster;
+using LinqExpression = System.Linq.Expressions.Expression;
 
 namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode
 {
@@ -17,7 +18,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
                             : source.Value.GetType() != type
                                 ? Convert.ChangeType(source.Value, type)
                                 : source.Value;
-            var result = System.Linq.Expressions.Expression.Constant(value, type);
+            var result = LinqExpression.Constant(value, type);
 
             return result;
         }

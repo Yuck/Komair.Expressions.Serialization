@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode.Abstract;
 using Mapster;
+using LinqExpression = System.Linq.Expressions.Expression;
 
 namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode
 {
@@ -12,7 +13,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
         {
             var type = source.Type;
             var name = source.Name;
-            var result = System.Linq.Expressions.Expression.Parameter(type, name);
+            var result = LinqExpression.Parameter(type, name);
 
             return result;
         }

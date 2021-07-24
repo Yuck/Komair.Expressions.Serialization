@@ -4,7 +4,7 @@ using Komair.Expressions.Abstract;
 
 namespace Komair.Expressions
 {
-    public class ConstantExpressionNode : ExpressionNode
+    public class ConstantExpressionNode : ExpressionNodeBase
     {
         public Object Value { get; set; }
 

@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>Kevin J Lambert, Omair Sajid</Authors>
     <Description>A .NET abstraction library for serializing Komair.Expressions.ExpressionNode objects to/from other types (in particular, System.Linq.Expressions objects).</Description>

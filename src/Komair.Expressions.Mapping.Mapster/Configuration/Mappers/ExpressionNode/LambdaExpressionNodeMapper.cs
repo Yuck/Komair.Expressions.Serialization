@@ -2,6 +2,7 @@
 using Komair.Expressions.Extensions;
 using Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode.Abstract;
 using Mapster;
+using LinqExpression = System.Linq.Expressions.Expression;
 
 namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode
 {
@@ -11,9 +12,9 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
 
         public override Expression<T> Map(LambdaExpressionNode source)
         {
-            var body = source.Body.Adapt<System.Linq.Expressions.Expression>(Configuration);
+            var body = source.Body.Adapt<LinqExpression>(Configuration);
             var parameters = body.GetParameterList();
-            var result = System.Linq.Expressions.Expression.Lambda<T>(body, parameters);
+            var result = LinqExpression.Lambda<T>(body, parameters);
 
             return result;
         }

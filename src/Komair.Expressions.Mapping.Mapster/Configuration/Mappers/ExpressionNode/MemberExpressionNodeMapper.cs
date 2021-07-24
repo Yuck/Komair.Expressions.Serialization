@@ -3,6 +3,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode.Abstract;
 using Mapster;
+using LinqExpression = System.Linq.Expressions.Expression;
 
 namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode
 {
@@ -12,7 +13,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
 
         public override MemberExpression Map(MemberExpressionNode source)
         {
-            var expression = source.Expression.Adapt<System.Linq.Expressions.Expression>(Configuration);
+            var expression = source.Expression.Adapt<LinqExpression>(Configuration);
             var type = source.Expression?.Type;
             if (type == null)
                 throw new NullReferenceException();
@@ -21,7 +22,7 @@ namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNod
             if (member == null)
                 throw new MemberAccessException($"Member '{source.MemberName}' was not found on type '{type.FullName}'.");
 
-            var result = System.Linq.Expressions.Expression.MakeMemberAccess(expression, member);
+            var result = LinqExpression.MakeMemberAccess(expression, member);
 
             return result;
         }

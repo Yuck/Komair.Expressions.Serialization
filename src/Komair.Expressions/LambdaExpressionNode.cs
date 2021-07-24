@@ -5,9 +5,9 @@ using Komair.Expressions.Abstract;
 
 namespace Komair.Expressions
 {
-    public class LambdaExpressionNode : ExpressionNode
+    public class LambdaExpressionNode : ExpressionNodeBase
     {
-        public ExpressionNode Body { get; set; }
+        public ExpressionNodeBase Body { get; set; }
         public IReadOnlyCollection<ParameterExpressionNode> Parameters { get; set; }
 
         public LambdaExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type) { }

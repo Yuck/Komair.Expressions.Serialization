@@ -1,8 +1,10 @@
-﻿using Mapster;
+﻿using Komair.Expressions.Abstract;
+using Mapster;
+using LinqExpression = System.Linq.Expressions.Expression;
 
 namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode.Abstract
 {
-    internal abstract class ExpressionNodeMapperBase<TSource, TDestination> where TSource : Expressions.Abstract.ExpressionNode where TDestination : System.Linq.Expressions.Expression
+    internal abstract class ExpressionNodeMapperBase<TSource, TDestination> where TSource : ExpressionNodeBase where TDestination : LinqExpression
     {
         protected TypeAdapterConfig Configuration;
 

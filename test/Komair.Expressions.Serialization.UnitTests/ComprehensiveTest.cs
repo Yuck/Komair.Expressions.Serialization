@@ -23,7 +23,7 @@ namespace Komair.Expressions.Serialization.UnitTests
         public void TestEverything()
         {
             static IExpressionNodeMapper<Func<String, Boolean>> GetMapper() => new MapsterExpressionNodeMapper<Func<String, Boolean>>();
-            static IExpressionNodeSerializer<JObject, ExpressionNode> GetSerializer() => new JsonExpressionNodeSerializer<ExpressionNode>(new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
+            static IExpressionNodeSerializer<JObject, ExpressionNodeBase> GetSerializer() => new JsonExpressionNodeSerializer<ExpressionNodeBase>(new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
 
             const String value = "test";
 

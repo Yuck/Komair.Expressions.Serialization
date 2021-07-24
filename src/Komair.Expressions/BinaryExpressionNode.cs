@@ -4,10 +4,10 @@ using Komair.Expressions.Abstract;
 
 namespace Komair.Expressions
 {
-    public class BinaryExpressionNode : ExpressionNode
+    public class BinaryExpressionNode : ExpressionNodeBase
     {
-        public ExpressionNode Left { get; set; }
-        public ExpressionNode Right { get; set; }
+        public ExpressionNodeBase Left { get; set; }
+        public ExpressionNodeBase Right { get; set; }
 
         public BinaryExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type) { }
     }

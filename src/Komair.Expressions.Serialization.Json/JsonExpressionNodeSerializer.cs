@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 // TODO: Eventually try to use System.Text.Json, but for now its serializer is pretty hard to work with
 namespace Komair.Expressions.Serialization.Json
 {
-    public class JsonExpressionNodeSerializer<TExpressionNode> : IExpressionNodeSerializer<JObject, TExpressionNode> where TExpressionNode : ExpressionNode
+    public class JsonExpressionNodeSerializer<TExpressionNode> : IExpressionNodeSerializer<JObject, TExpressionNode> where TExpressionNode : ExpressionNodeBase
     {
         #region Private Members
 
