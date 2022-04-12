@@ -2,13 +2,12 @@
 using System.Linq.Expressions;
 using Komair.Expressions.Abstract;
 
-namespace Komair.Expressions
-{
-    public class MemberExpressionNode : ExpressionNodeBase
-    {
-        public ExpressionNodeBase Expression { get; set; }
-        public String MemberName { get; set; }
+namespace Komair.Expressions;
 
-        public MemberExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type) { }
-    }
+public class MemberExpressionNode : ExpressionNodeBase
+{
+    public ExpressionNodeBase Expression { get; set; }
+    public String MemberName { get; set; }
+
+    public MemberExpressionNode(ExpressionType nodeType, Type type) : base(nodeType, type) { }
 }

@@ -4,19 +4,18 @@ using Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode.Ab
 using Mapster;
 using LinqExpression = System.Linq.Expressions.Expression;
 
-namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode
+namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode;
+
+internal class LambdaExpressionNodeMapper<T> : ExpressionNodeMapperBase<LambdaExpressionNode, Expression<T>>
 {
-    internal class LambdaExpressionNodeMapper<T> : ExpressionNodeMapperBase<LambdaExpressionNode, Expression<T>>
+    public LambdaExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration) { }
+
+    public override Expression<T> Map(LambdaExpressionNode source)
     {
-        public LambdaExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration) { }
+        var body = source.Body.Adapt<LinqExpression>(Configuration);
+        var parameters = body.GetParameterList();
+        var result = LinqExpression.Lambda<T>(body, parameters);
 
-        public override Expression<T> Map(LambdaExpressionNode source)
-        {
-            var body = source.Body.Adapt<LinqExpression>(Configuration);
-            var parameters = body.GetParameterList();
-            var result = LinqExpression.Lambda<T>(body, parameters);
-
-            return result;
-        }
+        return result;
     }
 }

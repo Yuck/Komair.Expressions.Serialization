@@ -4,18 +4,17 @@ using Komair.Expressions.Abstract;
 using Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode.Abstract;
 using Mapster;
 
-namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode
+namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.ExpressionNode;
+
+internal class ExpressionNodeMapper<T> : ExpressionNodeMapperBase<ExpressionNodeBase, Expression<T>>
 {
-    internal class ExpressionNodeMapper<T> : ExpressionNodeMapperBase<ExpressionNodeBase, Expression<T>>
+    public ExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration) { }
+
+    public override Expression<T> Map(ExpressionNodeBase source)
     {
-        public ExpressionNodeMapper(TypeAdapterConfig configuration) : base(configuration) { }
+        if (source is LambdaExpressionNode lambdaExpressionNode)
+            return new LambdaExpressionNodeMapper<T>(Configuration).Map(lambdaExpressionNode);
 
-        public override Expression<T> Map(ExpressionNodeBase source)
-        {
-            if (source is LambdaExpressionNode lambdaExpressionNode)
-                return new LambdaExpressionNodeMapper<T>(Configuration).Map(lambdaExpressionNode);
-
-            throw new NotSupportedException();
-        }
+        throw new NotSupportedException();
     }
 }

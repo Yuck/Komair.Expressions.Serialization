@@ -2,22 +2,21 @@
 using Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression.Abstract;
 using Mapster;
 
-namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
+namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression;
+
+internal class ConstantExpressionMapper : ExpressionMapperBase<ConstantExpression, ConstantExpressionNode>
 {
-    internal class ConstantExpressionMapper : ExpressionMapperBase<ConstantExpression, ConstantExpressionNode>
+    public ConstantExpressionMapper(TypeAdapterConfig configuration) : base(configuration) { }
+
+    public override ConstantExpressionNode Map(ConstantExpression source)
     {
-        public ConstantExpressionMapper(TypeAdapterConfig configuration) : base(configuration) { }
-
-        public override ConstantExpressionNode Map(ConstantExpression source)
+        var nodeType = source.NodeType;
+        var type = source.Type;
+        var result = new ConstantExpressionNode(nodeType, type)
         {
-            var nodeType = source.NodeType;
-            var type = source.Type;
-            var result = new ConstantExpressionNode(nodeType, type)
-            {
-                Value = source.Value
-            };
+            Value = source.Value
+        };
 
-            return result;
-        }
+        return result;
     }
 }
