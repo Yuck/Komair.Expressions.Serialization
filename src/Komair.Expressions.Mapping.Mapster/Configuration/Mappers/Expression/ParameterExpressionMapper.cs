@@ -2,22 +2,21 @@
 using Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression.Abstract;
 using Mapster;
 
-namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression
+namespace Komair.Expressions.Mapping.Mapster.Configuration.Mappers.Expression;
+
+internal class ParameterExpressionMapper : ExpressionMapperBase<ParameterExpression, ParameterExpressionNode>
 {
-    internal class ParameterExpressionMapper : ExpressionMapperBase<ParameterExpression, ParameterExpressionNode>
+    public ParameterExpressionMapper(TypeAdapterConfig configuration) : base(configuration) { }
+
+    public override ParameterExpressionNode Map(ParameterExpression source)
     {
-        public ParameterExpressionMapper(TypeAdapterConfig configuration) : base(configuration) { }
-
-        public override ParameterExpressionNode Map(ParameterExpression source)
+        var nodeType = source.NodeType;
+        var type = source.Type;
+        var result = new ParameterExpressionNode(nodeType, type)
         {
-            var nodeType = source.NodeType;
-            var type = source.Type;
-            var result = new ParameterExpressionNode(nodeType, type)
-            {
-                Name = source.Name
-            };
+            Name = source.Name
+        };
 
-            return result;
-        }
+        return result;
     }
 }

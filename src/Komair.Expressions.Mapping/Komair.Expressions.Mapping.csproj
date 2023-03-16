@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
+    <Version>6.0.1</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <Authors>Kevin J Lambert, Omair Sajid</Authors>
     <Description>A .NET abstraction library for mapping Komair.Expressions.ExpressionNode objects to/from other types (in particular, System.Linq.Expressions objects).</Description>
