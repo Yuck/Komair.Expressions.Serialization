@@ -57,8 +57,7 @@ using Newtonsoft.Json;
 
 // 1. Create a mapper and serializer
 var mapper = new MapsterExpressionNodeMapper<Func<string, bool>>();
-var serializer = new JsonExpressionNodeSerializer<ExpressionNodeBase>(
-    new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
+var serializer = new JsonExpressionNodeSerializer<ExpressionNodeBase>(new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
 
 // 2. Start with a LINQ expression
 Expression<Func<string, bool>> expression = t => t.Length > 0;
@@ -110,8 +109,7 @@ public interface IExpressionNodeMapper<T>
 Abstraction for serializing expression nodes to/from a transport format:
 
 ```csharp
-public interface IExpressionNodeSerializer<T, TExpressionNode>
-    where TExpressionNode : ExpressionNodeBase
+public interface IExpressionNodeSerializer<T, TExpressionNode> where TExpressionNode : ExpressionNodeBase
 {
     TExpressionNode Deserialize(T document);
     T Serialize(TExpressionNode node);
