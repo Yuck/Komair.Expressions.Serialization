@@ -2,6 +2,7 @@
 
 A .NET library ecosystem for **serializing and deserializing LINQ expression trees**. It provides serializable equivalents of `System.Linq.Expressions` classes, enabling expressions to be converted to and from wire formats (such as JSON), stored, transmitted, and restored as fully executable LINQ expressions.
 
+[![NuGet](https://img.shields.io/nuget/v/Komair.Expressions.Serialization.svg)](https://www.nuget.org/packages/Komair.Expressions.Serialization)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## Packages
@@ -173,7 +174,3 @@ IReadOnlyCollection<ParameterExpression> parameters = expression.GetParameterLis
 
 - Kevin J Lambert
 - Omair Sajid
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
